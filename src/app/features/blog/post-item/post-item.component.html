@@ -1,0 +1,11 @@
+<div class="card mb-5 card-post" >
+    <img src="{{post.image}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title mb-0">{{post.title}}</h5>
+      <small class="text-muted"><i class="fas fa-calendar-day"></i> {{post.date | date: 'dd/MM/yyyy'}} <i class="fas fa-user"></i> <strong> {{post.author.username}}</strong></small>
+      <p class="card-text mt-3">{{post.content.substring(0,50)}} ...</p>
+    </div>
+    <div class="card-footer">
+      <app-button [label]="'Read More'" [type]="'primary btn-sm btn-block'" routerLink="post/{{post._id}}"></app-button>  
+    </div>
+</div>

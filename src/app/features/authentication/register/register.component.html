@@ -1,0 +1,24 @@
+<div class="row justify-content-center">
+    <div class="col-lg-4 col-md-6 col-sm-12">
+      <div class="card">
+          <h5 class="card-header text-center">Registration Form</h5>
+          <div class="card-body">
+            <div class="container">
+              <form #f="ngForm" (submit)="register($event)">
+                <div class="form-group">
+                  <input type="text" class="form-control text-center" name="name" placeholder="Full Name" [(ngModel)]="credentials.name" required>
+                </div>
+                <div class="form-group">
+                  <input type="email" class="form-control text-center" name="email" placeholder="Email" [(ngModel)]="credentials.email" required>
+                </div>
+                <div class="form-group">
+                  <input type="password" class="form-control text-center" name="password" placeholder="Password" [(ngModel)]="credentials.password" required>
+                </div>
+                <!-- <button type="submit" class="btn btn-primary btn-block" [disabled]="f.invalid">Register</button> -->
+                <app-button [label]="'Register'" [type]="'primary btn-block'" (onClick)="register($event)" [disabled]="f.invalid"></app-button>
+              </form>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>

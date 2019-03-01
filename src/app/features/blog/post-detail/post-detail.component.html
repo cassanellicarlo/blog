@@ -1,0 +1,19 @@
+<app-spinner [loading]="loading"></app-spinner>
+
+<div *ngIf="!loading" class="card mb-5">
+  <img class="card-img-top img-fluid" src="{{post.image}}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">{{post.title}}</h5>
+    <small class="text-muted"><i class="fas fa-calendar-day"></i> {{post.date | date: 'dd/MM/yyyy'}} <i class="fas fa-user"></i> <strong> {{post.author.username}}</strong></small>
+    <p class="card-text">{{post.content}}</p>
+
+    <div *ngIf="auth.getUserDetails()?._id == post.author.id">
+      <app-button [label]="'Edit'" [type]="'primary btn-sm mr-2'" ></app-button>
+      <app-button [label]="'Delete'" [type]="'danger btn-sm'" ></app-button>
+    </div>
+  </div>
+  <div class="card-footer">
+    <app-comment-list [comments]="post.comments"></app-comment-list>
+    <app-new-comment (commentAdded)="updateComments($event)"></app-new-comment>
+  </div>
+</div>

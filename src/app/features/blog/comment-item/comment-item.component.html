@@ -1,0 +1,7 @@
+<li class="list-group-item list-group-item-action">
+  <div class="d-flex w-100 justify-content-between">
+    <p class="mb-1"><small><strong><i class="fas fa-user"></i> {{comment.author.username}}</strong></small></p>
+    <small class="text-muted"><i class="fas fa-calendar-day"></i> {{comment.date | date: 'dd/MM/yyyy'}}</small>
+  </div>
+  <p class="mb-1">{{comment.text}}</p>
+</li>

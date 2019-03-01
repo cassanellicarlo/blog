@@ -1,0 +1,11 @@
+<div class="jumbotron">
+  <img style="width:150px;height:150px" src="assets/img/mean.png" alt="MEAN Stack">
+  <h1 *ngIf="!auth.isLoggedIn()" class="display-4 mt-3">Hello there!</h1>
+  <h1 *ngIf="auth.isLoggedIn()" class="display-4 mt-3">Hello <strong>{{auth.getUserDetails().name}}!</strong></h1>
+  <p class="lead">Welcome to the best blog ever! </p>
+  <hr class="my-4">
+  <p>It's just an example of how <strong>MEAN</strong> Stack works. </p>
+  <p>MEAN stands for MongoDB, Express, Angular and NodeJS</p>
+  <p *ngIf="!auth.isLoggedIn()"><strong><a routerLink="/auth/login">Login</a></strong> or <strong><a routerLink="/auth/register" >Register</a></strong></p>
+  <p class="mt-5"><app-button [label]="'Go to Blog'" [type]="'primary'" routerLink="/blog"></app-button></p>
+</div>

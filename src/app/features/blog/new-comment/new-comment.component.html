@@ -1,0 +1,6 @@
+<form #f="ngForm" (submit)="addComment()" *ngIf="auth.isLoggedIn()">
+    <div class="form-group">
+      <textarea rows="2" type="title" class="form-control" name="content" placeholder="Content" [(ngModel)]="newComment.text" required></textarea>
+    </div>
+    <app-button [label]="'Add Comment'" [type]="'primary btn-sm'" (onClick)="addComment($event)" [disabled]="f.invalid"></app-button>
+  </form>

@@ -1,0 +1,23 @@
+<div class="row justify-content-center">
+    <div class="col-lg-4 col-md-6 col-sm-12">
+      <div class="card">
+          <h5 class="card-header">
+            My Profile
+          </h5>
+          <div class="card-body">
+              <table class="table table-borderless">
+                  <tbody>
+                    <tr>
+                      <th scope="row" width="10%">Name</th>
+                      <td>{{auth.getUserDetails().name}}</td>
+                    </tr>
+                    <tr>
+                      <th scope="row" width="10%">Email</th>
+                      <td>{{auth.getUserDetails().email}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+          </div>
+      </div>
+  </div>
+</div>
