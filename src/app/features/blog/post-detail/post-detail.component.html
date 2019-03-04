@@ -8,8 +8,8 @@
     <p class="card-text">{{post.content}}</p>
 
     <div *ngIf="auth.getUserDetails()?._id == post.author.id">
-      <app-button [label]="'Edit'" [type]="'primary btn-sm mr-2'" ></app-button>
-      <app-button [label]="'Delete'" [type]="'danger btn-sm'" ></app-button>
+      <app-button [label]="'Edit'" [type]="'primary btn-sm mr-2'" routerLink="edit" ></app-button>
+      <app-button [label]="'Delete'" [type]="'danger btn-sm'"  data-toggle="modal" data-target="#deletePostModal"></app-button>
     </div>
   </div>
   <div class="card-footer">
@@ -17,3 +17,11 @@
     <app-new-comment (commentAdded)="updateComments($event)"></app-new-comment>
   </div>
 </div>
+
+<app-modal 
+  [id]="'deletePostModal'"
+  *ngIf="!loading" 
+  [title]="'Delete post'" 
+  [content]="'Are you sure you want to delete this post?'"
+  (onConfirm)="deletePost($event)">
+</app-modal>

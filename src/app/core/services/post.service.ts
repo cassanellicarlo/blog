@@ -26,6 +26,16 @@ export class PostService {
     return this.api.request('post', 'posts', newPost);
   }
 
+  // Modify a post
+  modifyPost (id:string, modifiedPost: Post): Observable<any>{
+    return this.api.request('put',`posts/${id}`, modifiedPost);
+  }
+
+  // Delete a post
+  deletePost (id:string): Observable<any>{
+    return this.api.request('delete',`posts/${id}`);
+  }
+
   // Add new comment to a post
   addComment (id:string, newComment: Comment):Observable<Comment>{
     return this.api.request('post', `posts/${id}/comments`, newComment);

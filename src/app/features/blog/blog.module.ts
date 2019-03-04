@@ -11,9 +11,10 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { CommentListComponent } from './comment-list/comment-list.component';
 import { CommentItemComponent } from './comment-item/comment-item.component';
 import { NewCommentComponent } from './new-comment/new-comment.component';
+import { PostEditComponent } from './post-edit/post-edit.component';
 
 @NgModule({
-  declarations: [PostItemComponent, PostListComponent, NewPostComponent, PostDetailComponent, CommentListComponent, CommentItemComponent, NewCommentComponent],
+  declarations: [PostItemComponent, PostListComponent, NewPostComponent, PostDetailComponent, CommentListComponent, CommentItemComponent, NewCommentComponent, PostEditComponent],
   imports: [
     CommonModule,
     BlogRoutingModule,

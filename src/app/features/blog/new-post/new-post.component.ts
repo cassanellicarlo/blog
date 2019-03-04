@@ -13,17 +13,7 @@ import { AlertService } from 'src/app/shared/services/alert.service';
 })
 export class NewPostComponent implements OnInit {
 
-  postAuthor: Author ={
-    id: '',
-    username: ''
-  }
-
-  newPost: Post = {
-    title: '',
-    image: '',
-    content: '',
-    author: this.postAuthor
-  };
+  newPost: Post;
 
   constructor(
     private postService: PostService, 
@@ -32,15 +22,20 @@ export class NewPostComponent implements OnInit {
     private alertService: AlertService) { }
 
   ngOnInit() {
+    this.newPost = new Post ();
   }
 
   addPost (event){
+    this.newPost.author=new Author();
     this.newPost.author.id=this.auth.getUserDetails()._id;
     this.newPost.author.username=this.auth.getUserDetails().name;
 
     this.postService.addPost(this.newPost).subscribe ( data => {
-      console.log(data.message);
-      this.alertService.set("Post added!", "success");
+      this.alertService.set(data.message, "success");
+      this.router.navigateByUrl('/blog');
+    }, (err) => {
+      console.error(err);
+      this.alertService.set(err.error.message,"danger");
       this.router.navigateByUrl('/blog');
     });
     

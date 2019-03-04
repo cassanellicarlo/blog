@@ -68,7 +68,29 @@ router.put('/:id', auth, middleware.isLoggedIn, middleware.checkPostOwnership, b
         }
 
         else{
-            res.send(post);
+            res.status(200).json({
+                message: 'Post modified'
+            });
+        }
+    });
+
+});
+
+// Delete a post
+router.delete('/:id', auth, middleware.isLoggedIn, middleware.checkPostOwnership, (req, res) => {
+    console.log("Update a post");
+
+    const post_id = req.params.id;
+
+    Post.findByIdAndDelete(post_id, (err) => {
+        if(err){
+            console.log(err);
+        }
+
+        else{
+            res.status(200).json({
+                message: 'Post deleted'
+            });
         }
     });
 

@@ -15,15 +15,7 @@ export class NewCommentComponent implements OnInit {
 
   @Output() commentAdded: EventEmitter<Comment> = new EventEmitter();
 
-  commentAuthor: Author = {
-    id: '',
-    username: ''
-  }
-
-  newComment: Comment = {
-    text: '',
-    author: this.commentAuthor
-  };
+  newComment: Comment;
 
 
   constructor(
@@ -33,9 +25,11 @@ export class NewCommentComponent implements OnInit {
     private alertService: AlertService) { }
 
   ngOnInit() {
+    this.newComment = new Comment ();
   }
 
   addComment () {
+    this.newComment.author=new Author();
     this.newComment.author.id=this.auth.getUserDetails()._id;
     this.newComment.author.username=this.auth.getUserDetails().name;
 
